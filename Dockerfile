@@ -1,4 +1,6 @@
-FROM composer:latest
+FROM php:8.2.0-cli-buster
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo_mysql exif
