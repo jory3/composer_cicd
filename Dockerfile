@@ -1,9 +1,6 @@
 FROM composer:latest
 
 RUN docker-php-ext-install mysqli
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
-RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/php.ini
 RUN docker-php-ext-install pdo_mysql exif
 
 RUN apt-get update -y && apt-get install -y libwebp-dev libjpeg62-turbo-dev libpng-dev libjpeg-dev libxpm-dev \
@@ -20,10 +17,6 @@ RUN docker-php-ext-configure gd --with-jpeg
 
 #RUN docker-php-ext-install gd
 RUN docker-php-ext-install -j$(nproc) gd
-
-RUN apt-get install -y sqlite3 libsqlite3-dev
-RUN mkdir /db
-RUN /usr/bin/sqlite3 /db/test.db
 
 RUN docker-php-ext-install pdo_sqlite
 
