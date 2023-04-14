@@ -1,4 +1,4 @@
-FROM php:8.2.0-cli-buster
+FROM php:8.2-cli-buster
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
