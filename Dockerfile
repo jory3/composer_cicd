@@ -6,7 +6,7 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo_mysql exif
 
 RUN apt-get update -y && apt-get install -y libwebp-dev libjpeg62-turbo-dev libpng-dev libjpeg-dev libxpm-dev \
-    libfreetype6-dev
+    libfreetype6-dev git
 RUN apt-get update && \
     apt-get install -y \
         zlib1g-dev
